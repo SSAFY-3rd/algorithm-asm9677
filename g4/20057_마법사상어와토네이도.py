@@ -44,8 +44,7 @@ while True:
     for _ in range(k):
         i,j = i+dir[d][0], j+dir[d][1]
         move(i,j,d)
-    if j < 0:
-        break
+    if j < 0: break
     if d % 2: k += 1
     d = (d+1) % 4
 print(sum(arr[i][j] for j in range(len(arr[i])) for i in range(len(arr)) if not (0 <= i < n and 0 <= j < n)))
