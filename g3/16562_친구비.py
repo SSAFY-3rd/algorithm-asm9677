@@ -2,27 +2,24 @@ import sys
 sys.setrecursionlimit(10**6)
 input = sys.stdin.readline
 
-def find(node):
-    if union[node] == node:
-        return node
-    union[node] = find(union[node])
-    return union[node]
+def dfs(cur):
+    mn = pay[cur]
+    visited[cur] = 1    
+    for next in adj[cur]:
+        if not visited[next]:
+            mn = min(mn, dfs(next))
+    return mn
 
 n,m,k = map(int, input().split())
 
 pay = [0]+[*map(int, input().split())]
-union = [i for i in range(n+1)]
-mPay = pay.copy()
+adj = [[] for i in range(n+1)]
+visited = [0]*(n+1)
 
 for _ in range(m):
     a,b = map(int, input().split())
-    a,b = find(a), find(b)
-    union[a] = b
+    adj[a] += [b]
+    adj[b] += [a]
 
-for i in range(1,n+1):
-    mPay[find(i)] = min(mPay[find(i)], pay[i])
-res = 0
-for i in range(1,n+1):
-    res += mPay[find(i)]
-    mPay[find(i)] = 0
+res = sum(dfs(i) for i in range(1,n+1) if not visited[i])
 print(res if res <= k else 'Oh no')
