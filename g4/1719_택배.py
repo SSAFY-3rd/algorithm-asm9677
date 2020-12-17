@@ -14,8 +14,8 @@ for _ in range(m):
 for k in range(1,n+1):
     for i in range(1,n+1):
         if i == k: continue
-        for j in range(1,n+1):
-            if j == i or j == i: continue
+        for j in range(i+1,n+1):
+            if j == k: continue
             if dist[i][j] > dist[i][k] + dist[k][j]:
                 dist[i][j] = dist[j][i] = dist[i][k] + dist[k][j]
                 res[i][j], res[j][i] = res[i][k], res[j][k]
