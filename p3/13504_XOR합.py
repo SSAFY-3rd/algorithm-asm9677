@@ -1,6 +1,3 @@
-import sys
-input = sys.stdin.readline
-
 def insert(trie, num):        
     for idx in range(31,0,-1):
         f = num & (1<<idx) != 0
