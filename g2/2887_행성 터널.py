@@ -27,4 +27,4 @@ while n != 1:
         parent[u] = v
         res += d
         n -= 1
-print(res)
+print(res) 

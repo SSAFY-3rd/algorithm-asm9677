@@ -9,8 +9,8 @@ for i in range(n):
 
 res = 0    
 count = [0]*21
-count[names[0]] = 1
-l,r = -k,0
+
+l,r = -k,-1
 while l+1 < n:        
     count[names[l]] -= 1
     res += count[names[l]]

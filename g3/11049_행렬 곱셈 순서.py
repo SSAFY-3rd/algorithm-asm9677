@@ -9,4 +9,4 @@ def solve(i,j):
 n = int(input())
 matrix = [[*map(int, input().split())] for i in range(n)]
 dp = [[-1]*n for i in range(n)]
-print(solve(0,n-1))
+print(solve(0,n-1)) 
