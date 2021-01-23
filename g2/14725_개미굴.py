@@ -18,4 +18,4 @@ n = int(input())
 for _ in range(n):
     s = input().split()[:0:-1]
     insert(trie, s, len(s)-1)
-pre_order(trie,0)
+pre_order(trie,0) 
